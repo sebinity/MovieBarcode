@@ -5,13 +5,13 @@ import cv2
 
 # Set the link between method name and function
 def select_method(method_name):
-    if method_name == 'mean':
+    if method_name == "mean":
         return cv2.mean
-    elif method_name == 'hsv':
+    elif method_name == "hsv":
         return hsv_dominant
-    elif method_name == 'rgb':
+    elif method_name == "rgb":
         return bgr_dominant
-    elif method_name == 'kmean':
+    elif method_name == "kmean":
         return kmean_dominant
 
 
@@ -62,9 +62,9 @@ def generate_kmean_image(frame, k, dominant=False, display=False):
     res2 = res.reshape(frame.shape)
 
     if display:
-        cv2.imshow('res2', res2)
+        cv2.imshow("res2", res2)
 
     if dominant:
-        return center[most_common(label[0])]
+        return center[most_common(label.flatten())]
 
     return res2
